@@ -46,13 +46,13 @@ export default function CreateOrphanage() {
     if (!e.target.files) return
 
     const selectImages = Array.from(e.target.files)
-    setImages(selectImages)
+    setImages([...images as any, selectImages])
 
     const selectImagesPreview = selectImages.map(image => {
       return URL.createObjectURL(image)
     })
 
-    setPreviewImages(selectImagesPreview)
+    setPreviewImages([...previewImages as any, selectImagesPreview])
   }
 
   const handleSubmit = (e: FormEvent) => {
